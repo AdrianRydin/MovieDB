@@ -10,14 +10,21 @@ export async function fetchRecommended(){
             throw new Error(`Response status:${response.status} `);
         }
         let movies = await response.json();
-        oData.recommendedMovies = movies;
+
+        if (localStorage.getItem("movies") === null) {
+            localStorage.setItem("movies", JSON.stringify(movies));
+        } else{
+            oData.recommendedMovies = JSON.parse(localStorage.getItem("movies"));
+        }
         return movies;
        
         
     } catch(error){
         console.error(error.message)
+        return []
     }
 }
+console.log(oData.recommendedMovies)
 
 
-console.log(oData)
+

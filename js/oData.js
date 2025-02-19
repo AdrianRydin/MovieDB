@@ -1,7 +1,10 @@
 const oData = {
-     recommendedMovies: []
+     recommendedMovies: [],
+
+     init: function() {
+          this.recommendedMovies = []
+     }
 }
 
-console.log(oData.recommendedMovies)
 
 export default oData
