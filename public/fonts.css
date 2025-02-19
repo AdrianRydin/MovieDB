@@ -1,0 +1,20 @@
+
+.jost-medium {
+    font-family: "Jost", serif;
+    font-optical-sizing: auto;
+    font-weight: 500;
+    font-style: normal;
+  }
+
+  .jost-light{
+    font-family: "Jost", serif;
+    font-optical-sizing: auto;
+    font-weight: 300;
+    font-style: normal;
+  }
+  .jost-bold{
+    font-family: "Jost", serif;
+    font-optical-sizing: auto;
+    font-weight: 700;
+    font-style: normal;
+  }
