@@ -1,0 +1,96 @@
+.movie-details-container{
+    width: 100%;
+    height: calc(100vh - 150px);
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    gap: 1rem;
+    color: white;
+    background-color: #111111;
+    position: relative;
+}
+
+#movieTitle{
+    font-size: 2rem;
+    font-weight: bold;
+    text-align: center;
+}
+
+#rating{
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-align: center;
+}
+
+#movieRating{
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-align: center;
+}
+
+#movieDirector{
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-align: center;
+}
+#movieRunTime{
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-align: center;
+}
+#movieCountry{
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-align: center;
+}
+#movieLanguage{
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-align: center;
+}
+
+
+.movieDirector{
+    font-size: 1.5rem;
+    font-weight: bold;
+
+}
+.movieRating{
+    font-size: 1.5rem;
+    font-weight: bold;
+
+}
+.movieRunTime{
+    font-size: 1.5rem;
+    font-weight: bold;
+
+}
+.movieCountry{
+    font-size: 1.5rem;
+    font-weight: bold;
+
+}
+.movieLanguage{
+    font-size: 1.5rem;
+    font-weight: bold;
+
+}
+
+
+@media screen and (max-width: 768px){
+    .movie-details-container{
+        flex-direction: column;
+        height: auto;
+    }
+    #movieDetails{
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        justify-content: center;
+        align-items: center;
+    }
+
+
+
+    
+}

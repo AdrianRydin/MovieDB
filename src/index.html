@@ -4,12 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MovieDB</title>
-    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="./styling/style.css">
     <link rel="stylesheet" href="/public/fonts.css">
     <link rel="stylesheet" href="/public/icons.css">
+    <link rel="stylesheet" href="./styling/carousel.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; connect-src 'self' https://santosnr6.github.io/Data/favoritemovies.json http://www.omdbapi.com;script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline';font-src 'self' https://fonts.gstatic.com; frame-src 'self' https://www.youtube.com; img-src 'self' https://m.media-amazon.com; style-src-elem 'self' https://fonts.gstatic.com">
+
+
+
     <script type="module" src="/js/oData.js"></script>
     <script type="module" src="/js/api.js"></script>
     <script type="module" src="/js/script.js"></script>
@@ -23,39 +28,33 @@
     <section class="sidebar-container">
         <div class="sub-sidebar-container">
             <aside class="home-container">
-                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-house" viewBox="0 0 16 16">
+                <svg xmlns="http://www.w3.org/2000/svg"  width="32px" height="32px" fill="currentColor" class="bi bi-house" viewBox="0 0 16 16">
                     <path d="M8.707 1.5a1 1 0 0 0-1.414 0L.646 8.146a.5.5 0 0 0 .708.708L2 8.207V13.5A1.5 1.5 0 0 0 3.5 15h9a1.5 1.5 0 0 0 1.5-1.5V8.207l.646.647a.5.5 0 0 0 .708-.708L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293zM13 7.207V13.5a.5.5 0 0 1-.5.5h-9a.5.5 0 0 1-.5-.5V7.207l5-5z"/>
                   </svg>
-                <h1 class="jost-medium">Home</h1>
+                  <a href="index.html"><h1 class="jost-medium">Home</h1></a>
             </aside>
             <aside class="home-container">
-                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+                <svg xmlns="http://www.w3.org/2000/svg"  width="32px" height="32px" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
                     <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0"/>
                   </svg>
-                <h1 class="jost-medium">Search</h1>
+                  <a href="#searchBar"><h1 class="jost-medium">Search</h1></a>
             </aside>
 
         </div>
 
         <div class="sidebar">
             <aside class="sidebar-item">
-                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-film" viewBox="0 0 16 16">
-                    <path d="M0 1a1 1 0 0 1 1-1h14a1 1 0 0 1 1 1v14a1 1 0 0 1-1 1H1a1 1 0 0 1-1-1zm4 0v6h8V1zm8 8H4v6h8zM1 1v2h2V1zm2 3H1v2h2zM1 7v2h2V7zm2 3H1v2h2zm-2 3v2h2v-2zM15 1h-2v2h2zm-2 3v2h2V4zm2 3h-2v2h2zm-2 3v2h2v-2zm2 3h-2v2h2z"/>
+                <svg xmlns="http://www.w3.org/2000/svg"  width="32px" height="32px" fill="currentColor" class="bi bi-film" viewBox="0 0 16 16">
+                    <path d="M0 1a1 1 0 0 1 1-1h14a1 1 0 0 1 1 1v14a1 1 0 0 1-1 1H1a1 1 0 0 1-1-1zm4 0v6h8V1zm8 8H4v6h8zM1 1v2h2V1zm2 3H1v2h2zM1 7v2h2V7zm2 3H1v2h2zm-2 3v2h2v-2zM15 1h-2v2h2zm-2 3v2h2V4zm2 3h-2v2h2zm-2 3v2h2v-2zm2 3h-2v2h2z" />
                   </svg>
-                  <h1 class="jost-medium">Movies</h1>
+                  <a href="index.html"><h1 class="jost-medium">Movies</h1></a>
             </aside>
 
             <aside class="sidebar-item">
-                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-tv" viewBox="0 0 16 16">
-                    <path d="M2.5 13.5A.5.5 0 0 1 3 13h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5M13.991 3l.024.001a1.5 1.5 0 0 1 .538.143.76.76 0 0 1 .302.254c.067.1.145.277.145.602v5.991l-.001.024a1.5 1.5 0 0 1-.143.538.76.76 0 0 1-.254.302c-.1.067-.277.145-.602.145H2.009l-.024-.001a1.5 1.5 0 0 1-.538-.143.76.76 0 0 1-.302-.254C1.078 10.502 1 10.325 1 10V4.009l.001-.024a1.5 1.5 0 0 1 .143-.538.76.76 0 0 1 .254-.302C1.498 3.078 1.675 3 2 3zM14 2H2C0 2 0 4 0 4v6c0 2 2 2 2 2h12c2 0 2-2 2-2V4c0-2-2-2-2-2"/>
-                  </svg>
-                  <h1 class="jost-medium">Series</h1>
-            </aside>
-            <aside class="sidebar-item">
-                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-star" viewBox="0 0 16 16">
+                <svg xmlns="http://www.w3.org/2000/svg"  width="32px" height="32px" fill="currentColor" class="bi bi-star" viewBox="0 0 16 16">
                     <path d="M2.866 14.85c-.078.444.36.791.746.593l4.39-2.256 4.389 2.256c.386.198.824-.149.746-.592l-.83-4.73 3.522-3.356c.33-.314.16-.888-.282-.95l-4.898-.696L8.465.792a.513.513 0 0 0-.927 0L5.354 5.12l-4.898.696c-.441.062-.612.636-.283.95l3.523 3.356-.83 4.73zm4.905-2.767-3.686 1.894.694-3.957a.56.56 0 0 0-.163-.505L1.71 6.745l4.052-.576a.53.53 0 0 0 .393-.288L8 2.223l1.847 3.658a.53.53 0 0 0 .393.288l4.052.575-2.906 2.77a.56.56 0 0 0-.163.506l.694 3.957-3.686-1.894a.5.5 0 0 0-.461 0z"/>
                   </svg>
-                  <h1 class="jost-medium">Favorites</h1>
+                  <a href="favorites.html"><h1 class="jost-medium">Favorites</h1></a>
             </aside>
 
             
@@ -65,17 +64,35 @@
         
     </section>
 
+    <section class="header">
+
+
+                <form class="search-bar-container" id="searchForm">
+                    <input type="text" name="search-bar" id="searchBar" class="search-bar jost-medium" placeholder="Search for movies, series, actors...">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search search-bar-icon" viewBox="0 0 16 16">
+                        <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0"/>
+                      </svg>
+                      <button class="search-button" id="searchButton">Search</button>
+
+                </form>
+
+            <section class="header__nav-container">
+                <nav class="headernav__headernav-mobile">
+                    <a href="index.html" class="header__nav-link">Home</a>
+                    <a href="search.html" class="header__nav-link">Search</a>
+                    <a href="index.html" class="header__nav-link">Movies</a>
+                    <a href="favorites.html">Favorites</a>
+                </nav>
+    
+                <button class="header__hamburger-container">
+                    <aside class="header__hamburger-bar"></aside>
+                </button>
+            </section>
+
+    </section>
     <main class="main-container">
 
-        <section class="search-container">
-            <div class="search-bar-container">
-                <input type="search" name="search-bar" id="search-bar" class="search-bar jost-medium" placeholder="Search for movies, series, actors...">
 
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search search-bar-icon" viewBox="0 0 16 16">
-                    <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0"/>
-                  </svg>
-            </div>
-        </section>
 
 
         <section>
@@ -99,6 +116,11 @@
               
             </div>
           </section>
+
+            <section class="movies-container">
+                <h1 class="jost-medium">Top 20 movies</h1>
+                <section class="movies"></section>
+            </section>
 
     </main>
 
