@@ -23,7 +23,7 @@ a{
 }
 
 .sub-sidebar-container{
-    height: 20vh;
+    height: 10vh;
     width: 100%;
     display: flex;
     justify-content: center;
@@ -33,13 +33,15 @@ a{
     flex-wrap: wrap;
 }
 .sidebar{
-    height: 80%;
+    height: 90vh;
     width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
     background-color: #111111;
     border-radius: 10px;
+    gap: 2rem;
+    padding-top: 1rem;
 }
 .sidebar-item{
     width: 100%;
@@ -62,6 +64,11 @@ svg{
     min-width: 32px;
     display: block;
     color: white;
+}
+
+.home-button-href{
+    height: 100%;
+    width: 100%;
 }
 
 .home-container{
@@ -150,7 +157,7 @@ svg{
 /* HEADER */
 
 .header{
-    width: 80%;
+    width: 80vw;
     height: 10vh;
     margin-left: 18%;
     border-radius: 1rem;
@@ -158,36 +165,49 @@ svg{
     justify-content: center;
     align-items: center;
     background-color: #111111;
+    padding: 0.5rem 1rem;
+    box-sizing: border-box;
 }
 
 .search-bar-container{
+    position: relative;      /* for the absolutely positioned icon */
     display: flex;
     align-items: center;
-    width: 500px;               
-    height: 50px;
+  
+    /* Let’s use max-width so it can’t exceed 500px on large screens */
+    max-width: 500px;
+    width: 100%;            /* will shrink or grow as needed in the header */
+    height: 50px;           /* if you want a fixed height for the pill */
+    
     background-color: #2e2e2e;
     border: 1px solid #111111;
-    border-radius: 999px;       
-    padding: 0.25rem;           
-    position: relative;
+    border-radius: 999px;   /* pill shape */
+    padding: 0.25rem 0.5rem;
+    box-sizing: border-box;
 }
 
 .search-bar{
-    flex: 1;                    
+    flex: 1;                /* takes remaining space */
     background: none;
     border: none;
     outline: none;
     color: rgba(255, 255, 255, 0.63);
-    padding: 0 1rem;            
-    font-size: 1rem;            
+    font-size: 1rem;
+  
+    /* This left padding ensures text doesn't overlap the icon */
+    padding-left: 2.5rem;            
 
 }
-.search-bar::placeholder{
-    text-align: center;
+.search-bar[type="text"] {
+    padding-left: 3rem;
 }
+
+
 .search-bar:focus{
     outline: none;
-
+}
+.search-bar:focus::placeholder{
+    color: #2e2e2e;
 }
 
 .search-bar-icon{
@@ -200,12 +220,18 @@ svg{
 }
 
 .search-button{
-  background: none;           /* or match #2e2e2e to blend in exactly */
-  border: none;
-  color: #fff;
-  padding: 0 1rem;            /* space around text */
-  cursor: pointer;
-  border-radius: 999px;       /* keep corners smooth if you want a “pill” */
+    border: none;
+    color: #fff;
+    padding: 0 1rem;    /* space around the text */
+    cursor: pointer;
+    border-radius: 999px;
+    font-size: 1rem;
+    position: absolute;
+    right: 1rem;
+    top:50%;
+    transform: translateY(-50%);
+    background-color: #35353555;
+    height: 100%;
 }
 
 
@@ -219,7 +245,6 @@ svg{
     margin-left: 18%;
     margin-top: 1rem;
     border-radius: 1rem;
-    overflow: auto;
 }
 .main-container::after{
     content: "";
@@ -333,6 +358,15 @@ svg{
 
 }
 
+.visually-hidden {
+    position: absolute !important;
+    height: 1px;
+    width: 1px;
+    overflow: hidden;
+    clip: rect(1px, 1px, 1px, 1px);
+    white-space: nowrap;
+}
+
 
 /* Media Queries */
 
@@ -363,10 +397,14 @@ svg{
     .header{
         width: 100%;
         margin-left: 0;
-        justify-content: space-evenly;
+        flex-wrap: wrap;
+        justify-content: space-between; 
     }
     .search-bar-container{
-        width: 70vw;
+        max-width: 70vw;  
+        width: fit-content;
+        margin-bottom: 0.5rem; 
+        overflow: hidden;
     }
     .search-bar ::placeholder{
         text-align: center;

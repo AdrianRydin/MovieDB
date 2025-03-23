@@ -18,17 +18,17 @@ window.onload = function () {
 
 document.addEventListener('DOMContentLoaded', async () => {
     if(window.location.pathname.includes('index.html')) {
-        fetchRecommended().then(async () =>{
+        fetchRecommended().then(async () =>{ // Väntar på att API:et för filmerna hämtas innan man visar resten
             displayTrailers()
             const movie = await fetchRecommended()
 
             const movieCards = movie.map(generateCards);
             console.log(movieCards)
             let container = document.querySelector(".movies")
-            clearContainer(container)
+            clearContainer(container) 
             appendContainer(container, movieCards)
 
-            document.querySelectorAll('.favorite-star').forEach(button =>{
+            document.querySelectorAll('.favorite-star').forEach(button =>{ // Skapar en event listener för stjärnan som är på varje film
                 button.addEventListener('click', (event) => {
                     toggleFavorite(event.target.dataset.id)
                     console.log(localStorage.getItem('favorites'))
@@ -44,7 +44,7 @@ document.addEventListener('DOMContentLoaded', async () => {
                     const query = document.getElementById('searchBar').value.trim();
                     
                     if(query) {
-                        window.location.href = `search.html?q=${encodeURIComponent(query)}`;
+                        window.location.href = `search.html?q=${encodeURIComponent(query)}`; // Skickar dig till sök sidan med din sök input
                     }
                 })
             }
@@ -54,26 +54,26 @@ document.addEventListener('DOMContentLoaded', async () => {
         const searchParameters = new URLSearchParams(window.location.search);
         const query = searchParameters.get('q')
         if(query) {
-            const results = await searchMovies(query)
-            const movieCards = results.map(generateCards);
+            const results = await searchMovies(query) // Skickar din sök input till searchMovies så att du får alla relevanta filmer
+            const movieCards = results.map(generateCards); // Skapar cards till resultaten
             const container = document.getElementById('.movies');
         
             clearContainer(container)
-            appendContainer(container, movieCards)
+            appendContainer(container, movieCards) // Skickar ut cards till sidan
         }
     }
     if(window.location.pathname.includes('movie.html')) {
-        const searchParameters = new URLSearchParams(window.location.search);
+        const searchParameters = new URLSearchParams(window.location.search); // Samma logik som search.html
         const movieId = searchParameters.get('id')
         console.log("movie Id from url:", movieId)
 
         if(movieId) {
-            const movie = await fetchIndividualMovie(movieId)
+            const movie = await fetchIndividualMovie(movieId) // Skickar ID till filmen man klickade på till fetchIndividualMovie()
             console.log("Fetched movie details:", movie)
 
             if(movie && movie.Title) {
                 console.log(`here's the movie`, movie)
-                document.getElementById('movieTitle').textContent = movie.Title || "unknown";
+                document.getElementById('movieTitle').textContent = movie.Title || "unknown"; // Ser till att om API resultat för filmen är sönder, att det fortfarande visas på skärmen
                 document.getElementById('moviePoster').src = movie.Poster;
                 document.getElementById('moviePoster').alt = `Poster of ${movie.Title}`;
                 document.getElementById('movieDirector').textContent = movie.Director || "unknown";
@@ -91,7 +91,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         const container = document.getElementById('cardContainer');
         clearContainer(container);
 
-        const favorites = [...new Set(getFavorites())];
+        const favorites = [...new Set(getFavorites())]; // Lägger favorit listan i ett nytt set
         console.log(favorites)
         if(favorites.length === 0) {
             container.innerHTML = "<p>You haven't added any favorite movies yet!</p>";
@@ -101,7 +101,7 @@ document.addEventListener('DOMContentLoaded', async () => {
             for(const movieID of favorites) {
                 console.log(movieID)
                 console.log("hej2")
-                const response = await fetch(`https://www.omdbapi.com/?i=${movieID}&apikey=6d4dd304`);
+                const response = await fetch(`https://www.omdbapi.com/?i=${movieID}&apikey=6d4dd304`); // Hämtar ut individuella filmen som är sparad i favorit listan genom movieID
                 const movie = await response.json();
                 const movieCard = generateCards(movie);
                 if(!document.querySelector(`[data-id="${movie.imdbID}"]`)){

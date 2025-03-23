@@ -15,6 +15,7 @@ export function generateCards(movie){
     titleRef.textContent = movie.Title;
     titleRef.classList.add("jost-medium")
     imageRef.src = movie.Poster;
+    imageRef.alt = `An poster of ${movie.Title}`;
 
     starRef.classList.add('favorite-star');
     if(isFavorite) starRef.classList.add('filled');

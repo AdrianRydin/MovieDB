@@ -1,4 +1,3 @@
-import displayTrailers from "./modules/caroussel.js";
 import oData from "./oData.js"
 
 
@@ -10,7 +9,7 @@ export async function fetchRecommended(){
         if(!response.ok) {
             throw new Error(`Response status:${response.status} `);
         }
-        oData.recommendedMovies = await response.json();
+        oData.recommendedMovies = await response.json(); // Sparar API resultaten i en global variabel
 
         
         return oData.recommendedMovies
@@ -29,7 +28,7 @@ export async function fetchImdbMovies(){
         if(!response.ok) {
             throw new Error(`Response status:${response.status}`);
         }
-        oData.imdbMovies = await response.json();
+        oData.imdbMovies = await response.json(); // Sparar API resultaten i en global variabel
         console.log(oData.imdbMovies)
 
         return oData.imdbMovies

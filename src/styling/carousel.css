@@ -81,12 +81,10 @@
     transform: translateX(-50%);
     border: none;
     padding-top: 2rem;
-    display: none;
 }
 
 .trailers__video-1 {
-    left: 15%;
-    opacity: .4;
+    opacity: 0;
 }
 
 .trailers__video-2,
@@ -114,8 +112,7 @@
 }
 
 .trailers__video-5 {
-    left: 85%;
-    opacity: .4;
+    opacity: 0;
 }
 
 @media screen and (max-width: 750px) {

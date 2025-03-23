@@ -7,9 +7,8 @@ function getRandomTrailers(moviesArray, count = 5){
     }
 
 
-    // Fisher-Yates shuffle
 
-    for(let i = moviesArray.length - 1; i > 0; i--){
+    for(let i = moviesArray.length - 1; i > 0; i--){ // Fisher-Yates blandning
         let j = Math.floor(Math.random() * (i + 1));
         [moviesArray[i], moviesArray[j]] = [moviesArray[j], moviesArray[i]];
     }
@@ -22,7 +21,7 @@ function getRandomTrailers(moviesArray, count = 5){
 
 export function displayTrailers() {
     console.log(oData.recommendedMovies)
-    oData.randomMovies = getRandomTrailers(oData.recommendedMovies)
+    oData.randomMovies = getRandomTrailers(oData.recommendedMovies) // Sparar recommended movies till en ny global variabel
     console.log(oData.randomMovies)
     oData.randomMovies.forEach((movie, index) =>{
         let classIndex = index + 1;

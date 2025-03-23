@@ -24,12 +24,6 @@
                   </svg>
                   <a href="index.html"><h1 class="jost-medium">Home</h1></a>
             </aside>
-            <aside class="home-container">
-                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
-                    <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0"/>
-                  </svg>
-                  <a href="search.html"><h1 class="jost-medium">Search</h1></a>
-            </aside>
     
         </div>
     
@@ -60,23 +54,24 @@
 
 
         <form class="search-bar-container" id="searchForm">
-            <input type="text" name="search-bar" id="searchBar" class="search-bar jost-medium" placeholder="Search for movies, series, actors...">
+            <label for="searchForm" class="visually-hidden">Search bar container</label>
+            <input type="text" name="search-bar" id="searchBar" class="search-bar jost-medium" placeholder="Search..." >
+            <label for="searchBar" class="visually-hidden">Search bar</label>
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search search-bar-icon" viewBox="0 0 16 16">
                 <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0"/>
               </svg>
               <button class="search-button" id="searchButton">Search</button>
-
+              <label for="searchButton" class="visually-hidden">Search button</label>
         </form>
 
     <section class="header__nav-container">
         <nav class="headernav__headernav-mobile">
             <a href="index.html" class="header__nav-link">Home</a>
-            <a href="search.html" class="header__nav-link">Search</a>
             <a href="index.html" class="header__nav-link">Movies</a>
             <a href="favorites.html">Favorites</a>
         </nav>
 
-        <button class="header__hamburger-container">
+        <button class="header__hamburger-container" aria-label="Open menu">
             <aside class="header__hamburger-bar"></aside>
         </button>
     </section>
